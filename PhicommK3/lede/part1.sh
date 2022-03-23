@@ -27,6 +27,13 @@ rm -rf package/lean/luci-app-passwall
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall package/lean/luci-app-passwall 
 echo '=========Add feed source OK!========='
 
+echo '添加OpenClash软件源'
+sed -i '$a src-git openclash https://github.com/vernesong/OpenClash' feeds.conf.default
+rm -rf package/lean/luci-app-passwall 
+git clone -b luci https://github.com/vernesong/OpenClash package/lean/luci-app-openclash 
+echo '=========Add feed source OK!========='
+
+
 echo '添加jerrykuku的argon-mod主题'
 rm -rf package/lean/luci-theme-argon  
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
